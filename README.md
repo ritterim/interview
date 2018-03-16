@@ -10,9 +10,13 @@ You, as the interviewee, are encouraged to:
 1. Search the internet
 1. Discuss your technical choices with interviewers
 
-**NOTE: The desired outcome is a pull request to this repository that builds and can be run by the developer of RIMdev with minimal effort.**
+**NOTE: The desired outcome is a pull request to this repository that builds and can be run by interviewer with minimal effort.**
 
 **We also do not expect to see build artificats in your pull request.**
+
+## Time
+
+We expect the task to take anywhere between `30` to `60` minutes.
 
 ## Requirements
 
@@ -21,7 +25,7 @@ You, as the interviewee, are encouraged to:
 
 ## Preferred Technology
 
-- .NET (C#)
+- [.NET (C#)](https://www.microsoft.com/net)
 
 ## Objectives
 
