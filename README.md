@@ -36,7 +36,7 @@ We expect the task to take anywhere between `30` to `60` minutes.
   - [ ] What are the counts of each `favorite fruit`?
   - [ ] What is the most common `eye color`?
   - [ ] What is the `total balance` of all individuals combined?
-  - [ ] What is the `full name` individual with the id of `5aabbca3e58dc67745d720b1` in the format of `lastname, firstname`?
+  - [ ] What is the `full name` of the individual with the id of `5aabbca3e58dc67745d720b1` in the format of `lastname, firstname`?
 
 ## Bonus
 
