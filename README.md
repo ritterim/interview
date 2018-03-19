@@ -16,7 +16,7 @@ You, as the interviewee, are encouraged to:
 
 ## Time
 
-We expect the task to take anywhere between `30` to `60` minutes.
+We expect the task to take anywhere between `45` to `90` minutes.
 
 ## Requirements
 
