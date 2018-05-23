@@ -1,6 +1,6 @@
 # RIMdev Technical Interview
 
-The purpose of this exercise is to understand an applicants ability to *problem solve*, *think critically*, and *write software* with existing RIMdev team members. While there is no expected answer, we do expect the production of a working sample. That means the work must compile, transpile, or interpert and above all else run with no immediate exceptions.
+The purpose of this exercise is to understand an applicants ability to *problem solve*, *think critically*, and *write software* with existing RIMdev team members. While there is no expected answer, we do expect the production of a working sample. That means the work must compile, transpile, or interpret and above all else run with no immediate exceptions.
 
 While accomplishing this exercise is permitted before interviewing at Ritter Insurance Marketing, it may also be completed in collaboration with the interviewers.
 
@@ -20,7 +20,7 @@ We expect the task to take anywhere between `45` to `90` minutes.
 
 ## Requirements
 
-- Github account (personal or anonymous is fine)
+- GitHub account (personal or anonymous is fine)
   - Please inform team members which PR is yours in the case an anonymous account is utilized
 
 ## Preferred Technology
