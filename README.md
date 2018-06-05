@@ -12,7 +12,7 @@ You, as the interviewee, are encouraged to:
 
 **NOTE: The desired outcome is a pull request to this repository that builds and can be run by interviewer with minimal effort.**
 
-**We also do not expect to see build artificats in your pull request.**
+**We also do not expect to see build artifacts in your pull request.**
 
 ## Time
 
