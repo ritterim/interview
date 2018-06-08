@@ -8,13 +8,13 @@ using System.Linq;
 namespace CustomerAnalytics.Tests
 {
     [TestClass]
-    public class CustomerAnalyzerTests
+    public class CustomerAnalyserTests
     {
-        private CustomerAnalyzer sut;
+        private CustomerAnalyser sut;
 
-        public CustomerAnalyzerTests()
+        public CustomerAnalyserTests()
         {
-            sut = new CustomerAnalyzer();
+            sut = new CustomerAnalyser();
         }
 
         [TestMethod]

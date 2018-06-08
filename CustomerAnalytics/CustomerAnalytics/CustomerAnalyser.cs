@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace CustomerAnalytics
 {
-    public class CustomerAnalyzer
+    public class CustomerAnalyser
     {
         public int GetCountTheNumberOfPeopleOverAnAge(ICollection<Customer> customers, uint ageLimit)
         {
@@ -38,12 +38,12 @@ namespace CustomerAnalytics
                 .EyeColor;
         }
 
-        public decimal CalculateTotalBalance(List<Customer> customers)
+        public decimal CalculateTotalBalance(ICollection<Customer> customers)
         {
             return customers.Sum(x => x.Balance);
         }
 
-        public string GetUsersFullName(List<Customer> customers, string id)
+        public string GetUsersFullName(ICollection<Customer> customers, string id)
         {
             var customer = customers.FirstOrDefault(x => x.Id == id);
 

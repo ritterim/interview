@@ -42,6 +42,16 @@ The data needs to be in decimal format for this question, but the string in the 
 
 This should be easy. It is just going to be a FirstOrDefault on that id and then a concatenation of the came. 
 
+### Console App
+
+I need to have a DTO, because the $ sign in the balance field is going to not be parsable. So, I'm going to deserialize that as a string, and then do a little string manipulation and convert it to a decimal. I'm making it an extension method because it will just be easier to use. And, I'm not going to test it because I've spent too much time already on this (this makes me sad). 
+
+After doing that I just called all the methods in an anonymous type, converted it to a pretty json string and printed it on the screen. I then saved it to a results.json as my "database."  
+
+### End notes
+
+I likely over did it a bit with this little application. But I had a lot of fun writing it. Thanks for giving me this opportunity! 
+
 Libraries Used
 ---
 
