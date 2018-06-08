@@ -33,7 +33,7 @@ namespace CustomerAnalytics.ConsoleApp
             Console.WriteLine();
             Console.WriteLine(resultsJson);
 
-            File.Create("../../results.json");
+            File.WriteAllText("../../results.json", resultsJson);
 
             Console.WriteLine();
             Console.WriteLine("Please press any key to close out. The results should be saved in a json file in the root of your project.");
