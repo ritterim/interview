@@ -88,9 +88,7 @@ namespace CustomerAnalytics.Tests
         [TestMethod]
         public void GetNewestCustomerWhoIsStillActive_ThereAreNoCustomers()
         {
-            var customers = new List<Customer>
-            {
-            };
+            var customers = new List<Customer>();
 
             var result = sut.GetNewestCustomerWhoIsStillActive(customers);
 
@@ -193,6 +191,27 @@ namespace CustomerAnalytics.Tests
         }
 
         [TestMethod]
+        public void CountOfEachFavoriteFruit_WithManyOfTheSameFruit_DifferentCasing()
+        {
+            var amazingFruit = RandomValue.String().ToLowerInvariant();
+
+            var numberOfAmazingFruit = RandomValue.Int(200);
+
+            var customers = RandomValue.List<Customer>(numberOfAmazingFruit);
+
+            customers.ForEach(x => x.FavoriteFruit = amazingFruit);
+            customers.Add(new Customer
+            {
+                FavoriteFruit = amazingFruit.ToUpperInvariant()
+            });
+
+            var result = sut.CountOfEachFavoriteFruit(customers);
+
+            result.First().FavoriteFruit.Should().Be(amazingFruit);
+            result.First().Count.Should().Be(numberOfAmazingFruit + 1);
+        }
+
+        [TestMethod]
         public void CountOfEachFavoriteFruit_WithManyOfTheSameFruits()
         {
             var amazingFruit = RandomValue.String();
@@ -265,6 +284,49 @@ namespace CustomerAnalytics.Tests
                 new Customer
                 {
                     EyeColor = popularEyeColor
+                }
+            };
+
+            var result = sut.MostCommonEyeColor(customers);
+
+            result.Should().Be(popularEyeColor);
+        }
+
+        [TestMethod]
+        public void MostCommonEyeColor_WithSomeSameness_ShouldReturnMax_WithDifferentAz()
+        {
+            var popularEyeColor = RandomValue.String().ToLowerInvariant();
+            var oneLessPopularEyeColor = RandomValue.String();
+
+            var customers = new List<Customer>
+            {
+                new Customer
+                {
+                    EyeColor = oneLessPopularEyeColor
+                },
+                new Customer
+                {
+                    EyeColor = popularEyeColor
+                },
+                new Customer
+                {
+                    EyeColor = oneLessPopularEyeColor
+                },
+                new Customer
+                {
+                    EyeColor = popularEyeColor
+                },
+                new Customer
+                {
+                    EyeColor = oneLessPopularEyeColor
+                },
+                new Customer
+                {
+                    EyeColor = popularEyeColor.ToUpperInvariant()
+                },
+                new Customer
+                {
+                    EyeColor = popularEyeColor.ToUpperInvariant()
                 }
             };
 
@@ -359,6 +421,32 @@ namespace CustomerAnalytics.Tests
             customers.AddRange(RandomValue.List<Customer>());
 
             var result = sut.GetUsersFullName(customers, idToFind);
+
+            result.Should().Be($"{lastName}, {firstName}");
+        }
+
+        [TestMethod]
+        public void GetUsersFullName_ManyUsers_HandleCasing()
+        {
+            var idToFind = RandomValue.String().ToUpperInvariant();
+            var firstName = RandomValue.String();
+            var lastName = RandomValue.String();
+
+            var customers = RandomValue.List<Customer>();
+
+            customers.Add(new Customer
+            {
+                Name = new Name
+                {
+                    First = firstName,
+                    Last = lastName
+                },
+                Id = idToFind
+            });
+
+            customers.AddRange(RandomValue.List<Customer>());
+
+            var result = sut.GetUsersFullName(customers, idToFind.ToLowerInvariant());
 
             result.Should().Be($"{lastName}, {firstName}");
         }

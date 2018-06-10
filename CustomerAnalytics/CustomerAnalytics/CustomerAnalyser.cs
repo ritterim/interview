@@ -18,7 +18,7 @@ namespace CustomerAnalytics
         public ICollection<FavoriteFruitFrequency> CountOfEachFavoriteFruit(ICollection<Customer> customers)
         {
             return customers
-                .GroupBy(x => x.FavoriteFruit)
+                .GroupBy(x => x.FavoriteFruit.ToLowerInvariant())
                 .Select(x => new FavoriteFruitFrequency { Count = x.Count(), FavoriteFruit = x.Key })
                 .ToList();
         }
@@ -31,7 +31,7 @@ namespace CustomerAnalytics
             }
 
             return customers
-                .GroupBy(x => x.EyeColor)
+                .GroupBy(x => x.EyeColor.ToLowerInvariant())
                 .OrderByDescending(x => x.Count())
                 .First()
                 .First()
@@ -45,7 +45,7 @@ namespace CustomerAnalytics
 
         public string GetUsersFullName(ICollection<Customer> customers, string id)
         {
-            var customer = customers.FirstOrDefault(x => x.Id == id);
+            var customer = customers.FirstOrDefault(x => x.Id.ToLowerInvariant() == id.ToLowerInvariant());
 
             if (customer == null)
             {
