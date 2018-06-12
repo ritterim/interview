@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace CustomerAnalytics.ConsoleApp
@@ -27,13 +28,7 @@ namespace CustomerAnalytics.ConsoleApp
 
         private static decimal ParseBalance(string balanceString)
         {
-            // This is not robust code. It makes me sad.
-            if (balanceString.StartsWith('$'))
-            {
-                balanceString = balanceString.Substring(1);
-            }
-
-            return decimal.Parse(balanceString);
+            return decimal.Parse(balanceString, NumberStyles.Currency);
         }
     }
 }

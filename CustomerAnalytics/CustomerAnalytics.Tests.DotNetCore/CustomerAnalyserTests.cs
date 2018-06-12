@@ -1,13 +1,12 @@
 ﻿using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RandomTestValues;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Xunit;
 
 namespace CustomerAnalytics.Tests
 {
-    [TestClass]
     public class CustomerAnalyserTests
     {
         private CustomerAnalyser sut;
@@ -17,7 +16,7 @@ namespace CustomerAnalytics.Tests
             sut = new CustomerAnalyser();
         }
 
-        [TestMethod]
+        [Fact]
         public void GetCountTheNumberOfPeopleOverAnAge_ThereAreNoRecordsPassed()
         {
             var result = sut.GetCountTheNumberOfPeopleOverAnAge(new List<Customer>(), 512);
@@ -25,7 +24,7 @@ namespace CustomerAnalytics.Tests
             result.Should().Be(0);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetCountTheNumberOfPeopleOverAnAge_ThereIsOnePersonOverFiftyInTheSet()
         {
             var customers = new List<Customer>
@@ -41,7 +40,7 @@ namespace CustomerAnalytics.Tests
             result.Should().Be(1);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetCountTheNumberOfPeopleOverAnAge_ThereIsOnePersonWhoIsFiftyInTheSet()
         {
             var customers = new List<Customer>
@@ -57,7 +56,7 @@ namespace CustomerAnalytics.Tests
             result.Should().Be(0);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetCountTheNumberOfPeopleOverAnAge_ThereAreMultipleCustomersInTheList()
         {
             var customers = new List<Customer>
@@ -85,7 +84,7 @@ namespace CustomerAnalytics.Tests
             result.Should().Be(3);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetNewestCustomerWhoIsStillActive_ThereAreNoCustomers()
         {
             var customers = new List<Customer>();
@@ -95,7 +94,7 @@ namespace CustomerAnalytics.Tests
             result.Should().BeNull();
         }
 
-        [TestMethod]
+        [Fact]
         public void GetNewestCustomerWhoIsStillActive_ThereIsOnlyOneActiveCustomer()
         {
             var activeCustomer = new Customer
@@ -117,7 +116,7 @@ namespace CustomerAnalytics.Tests
             result.Should().BeSameAs(activeCustomer);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetNewestCustomerWhoIsStillActive_ThereIsNoActiveCustomers()
         {
             var customers = new List<Customer>
@@ -133,7 +132,7 @@ namespace CustomerAnalytics.Tests
             result.Should().BeNull();
         }
 
-        [TestMethod]
+        [Fact]
         public void GetNewestCustomerWhoIsStillActive_ShouldReturnNewestCustomer()
         {
             var mostRecentActiveCustomer = new Customer
@@ -163,7 +162,7 @@ namespace CustomerAnalytics.Tests
             result.Should().BeSameAs(mostRecentActiveCustomer);
         }
 
-        [TestMethod]
+        [Fact]
         public void CountOfEachFavoriteFruit_ShouldReturnEmptyList()
         {
             var customers = new List<Customer>();
@@ -173,7 +172,7 @@ namespace CustomerAnalytics.Tests
             result.Should().BeEmpty();
         }
 
-        [TestMethod]
+        [Fact]
         public void CountOfEachFavoriteFruit_WithManyOfTheSameFruit()
         {
             var amazingFruit = RandomValue.String();
@@ -190,7 +189,7 @@ namespace CustomerAnalytics.Tests
             result.First().Count.Should().Be(numberOfAmazingFruit);
         }
 
-        [TestMethod]
+        [Fact]
         public void CountOfEachFavoriteFruit_WithManyOfTheSameFruit_DifferentCasing()
         {
             var amazingFruit = RandomValue.String().ToLowerInvariant();
@@ -211,7 +210,7 @@ namespace CustomerAnalytics.Tests
             result.First().Count.Should().Be(numberOfAmazingFruit + 1);
         }
 
-        [TestMethod]
+        [Fact]
         public void CountOfEachFavoriteFruit_WithManyOfTheSameFruits()
         {
             var amazingFruit = RandomValue.String();
@@ -242,7 +241,7 @@ namespace CustomerAnalytics.Tests
             terribleFruitResult.Count.Should().Be(numberOfPeopleWithPoorTaste);
         }
 
-        [TestMethod]
+        [Fact]
         public void MostCommonEyeColor_WithNonPassed()
         {
             var customers = new List<Customer>();
@@ -252,7 +251,7 @@ namespace CustomerAnalytics.Tests
             result.Should().BeNull();
         }
 
-        [TestMethod]
+        [Fact]
         public void MostCommonEyeColor_WithAllRandomData_ShouldReturnFirst()
         {
             var customers = RandomValue.List<Customer>();
@@ -262,7 +261,7 @@ namespace CustomerAnalytics.Tests
             result.Should().Be(customers.First().EyeColor);
         }
 
-        [TestMethod]
+        [Fact]
         public void MostCommonEyeColor_WithSomeSameness_ShouldReturnMax()
         {
             var popularEyeColor = RandomValue.String();
@@ -292,7 +291,7 @@ namespace CustomerAnalytics.Tests
             result.Should().Be(popularEyeColor);
         }
 
-        [TestMethod]
+        [Fact]
         public void MostCommonEyeColor_WithSomeSameness_ShouldReturnMax_WithDifferentAz()
         {
             var popularEyeColor = RandomValue.String().ToLowerInvariant();
@@ -335,7 +334,7 @@ namespace CustomerAnalytics.Tests
             result.Should().Be(popularEyeColor);
         }
 
-        [TestMethod]
+        [Fact]
         public void CalculateTotalBalance_NoCustomers()
         {
             var customers = new List<Customer>();
@@ -345,7 +344,7 @@ namespace CustomerAnalytics.Tests
             result.Should().Be(0);
         }
 
-        [TestMethod]
+        [Fact]
         public void CalculateTotalBalance_OneCustomer()
         {
             var customersBalance = 20.22254648m;
@@ -363,7 +362,7 @@ namespace CustomerAnalytics.Tests
             result.Should().Be(customersBalance);
         }
 
-        [TestMethod]
+        [Fact]
         public void CalculateTotalBalance_MultipleCustomers()
         {
 
@@ -388,7 +387,7 @@ namespace CustomerAnalytics.Tests
             result.Should().Be(.5m + 1.5m + 10.75m);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetUsersFullName_NoUser()
         {
 
@@ -399,7 +398,7 @@ namespace CustomerAnalytics.Tests
             result.Should().BeNull();
         }
 
-        [TestMethod]
+        [Fact]
         public void GetUsersFullName_ManyUsers()
         {
             var idToFind = RandomValue.String();
@@ -425,7 +424,7 @@ namespace CustomerAnalytics.Tests
             result.Should().Be($"{lastName}, {firstName}");
         }
 
-        [TestMethod]
+        [Fact]
         public void GetUsersFullName_ManyUsers_HandleCasing()
         {
             var idToFind = RandomValue.String().ToUpperInvariant();

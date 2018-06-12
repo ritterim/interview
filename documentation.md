@@ -58,4 +58,5 @@ Libraries Used
 - [Fluent Assertions](https://github.com/fluentassertions/fluentassertions)
 - [Random Test Values](https://github.com/RasicN/random-test-values)
 - [Newtonsoft.Json](http://www.newtonsoft.com/json)
+- [xunit and associated libraries](https://xunit.github.io/)
 
