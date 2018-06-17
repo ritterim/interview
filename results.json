@@ -1,0 +1,33 @@
+{
+  "CountOfCustomersOver50": 55,
+  "LastPersonToRegisterAndIsStillActive": {
+    "Age": 39,
+    "IsActive": true,
+    "Registered": "2018-03-10T07:40:00",
+    "FavoriteFruit": "apple",
+    "EyeColor": "blue",
+    "Balance": 1501.59,
+    "Id": "5aabbca3cbeb7fbbdb14dcb7",
+    "Name": {
+      "First": "Ramsey",
+      "Last": "Wolf"
+    }
+  },
+  "FavoriteFruitCounts": [
+    {
+      "FavoriteFruit": "strawberry",
+      "Count": 31
+    },
+    {
+      "FavoriteFruit": "apple",
+      "Count": 38
+    },
+    {
+      "FavoriteFruit": "banana",
+      "Count": 31
+    }
+  ],
+  "MostCommonEyeColor": "blue",
+  "TotalBalance": 261601.15,
+  "PersonWhoWeLookedUp": "Saunders, Lourdes"
+}
