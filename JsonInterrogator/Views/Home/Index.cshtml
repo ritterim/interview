@@ -1,8 +1,17 @@
-﻿@{
+﻿@model AppViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">What is the count of individuals over the age of 50?</h5>
+        <div class="card-text">There are @Model.CountOverAge50 individuals over the age of 50.</div>
+    </div>
 </div>

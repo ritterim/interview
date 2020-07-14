@@ -30,8 +30,8 @@ namespace JsonInterrogator.Controllers
                 JsonSerializer serializer = new JsonSerializer();
                 People = (IEnumerable<Person>)serializer.Deserialize(file, typeof(IEnumerable<Person>));
             }
-
-            return View();
+            var viewModel = new AppViewModel(People);
+            return View(viewModel);
         }
 
         public IActionResult Privacy()
