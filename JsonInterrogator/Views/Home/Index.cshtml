@@ -15,3 +15,10 @@
         <div class="card-text">There are @Model.CountOverAge50 individuals over the age of 50.</div>
     </div>
 </div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Who is last individual that registered who is still active?</h5>
+        <div class="card-text">@Model.LastActivePerson.Name.First @Model.LastActivePerson.Name.Last is the last active individual.</div>
+    </div>
+</div>

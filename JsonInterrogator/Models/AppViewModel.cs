@@ -12,10 +12,12 @@ namespace JsonInterrogator.Models
             this.BuildViewModel();
         }
         public int CountOverAge50 { get; private set; }
+        public Person LastActivePerson { get; private set; }
 
         private void BuildViewModel()
         {
             this.CountOverAge50 = this._people.Where(x => x.Age > 50).Count();
+            this.LastActivePerson = this._people.Last(x => x.IsActive);
         }
     }
 }
