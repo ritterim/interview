@@ -22,3 +22,18 @@
         <div class="card-text">@Model.LastActivePerson.Name.First @Model.LastActivePerson.Name.Last is the last active individual.</div>
     </div>
 </div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">What are the counts of each favorite fruit?</h5>
+        <div class="card-text">
+            <dl>
+            @foreach (var item in Model.FruitReport)
+            {
+                <dt>@item.Description</dt>
+                <dd>@item.Count</dd>
+            }
+            </dl>
+        </div>
+    </div>
+</div>
