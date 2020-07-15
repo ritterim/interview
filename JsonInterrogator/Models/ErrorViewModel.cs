@@ -1,5 +1,3 @@
-using System;
-
 namespace JsonInterrogator.Models
 {
     public class ErrorViewModel
