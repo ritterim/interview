@@ -7,7 +7,7 @@ namespace JsonInterrogator.Tests
     public class Tests
     {
         [Test]
-        public void Test1()
+        public void ReturnsCountOfPeopleOver50()
         {
             // Arrange
             var people = new List<Person>
