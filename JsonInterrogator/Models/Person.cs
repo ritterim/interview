@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 
 namespace JsonInterrogator.Models
 {
@@ -7,6 +8,13 @@ namespace JsonInterrogator.Models
         public string Id { get; set; }
         public bool IsActive { get; set; }
         public string Balance { get; set; }
+        public decimal ConvertedBalance
+        {
+            get
+            {
+                return decimal.Parse(this.Balance, NumberStyles.AllowCurrencySymbol | NumberStyles.Number);
+            }
+        }
         public int Age { get; set; }
         public Name Name { get; set; }
         public string EyeColor { get; set; }
