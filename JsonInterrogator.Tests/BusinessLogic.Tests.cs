@@ -117,5 +117,27 @@ namespace JsonInterrogator.Tests
             // Assert
             Assert.AreEqual(24m, result);
         }
+
+        [Test]
+        public void Test()
+        {
+            // Arrange
+            string selected = "1";
+            var expectedPerson = new Person { Id = selected, Name = new Name { First = "First", Last = "Last" } };
+
+            var people = new List<Person> {
+                new Person { Id = "2" },
+                new Person { Id = "3" },
+                new Person { Id = "4" },
+                expectedPerson,
+                new Person { Id = "6" },
+            };
+
+            // Act
+            var result = people.GetFullNameById(selected);
+
+            // Assert
+            Assert.AreEqual($"{expectedPerson.Name.Last}, {expectedPerson.Name.First}", result);
+        }
     }
 }
