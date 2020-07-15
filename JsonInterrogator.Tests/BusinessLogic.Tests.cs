@@ -24,5 +24,27 @@ namespace JsonInterrogator.Tests
             // Assert
             Assert.AreEqual(2, result);
         }
+
+        [Test]
+        public void Test()
+        {
+            // Arrange
+            var lastActivePerson = new Person { IsActive = true };
+
+            var people = new List<Person> {
+                new Person { IsActive = false },
+                new Person { IsActive = false },
+                new Person { IsActive = true },
+                new Person { IsActive = false },
+                lastActivePerson,
+                new Person { IsActive = false },
+            };
+
+            // Act
+            var result = people.GetLastActivePerson();
+
+            // Assert
+            Assert.AreSame(result, lastActivePerson);
+        }
     }
 }
