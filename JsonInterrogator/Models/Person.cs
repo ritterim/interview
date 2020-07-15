@@ -7,13 +7,7 @@ namespace JsonInterrogator.Models
         public string Id { get; set; }
         public bool IsActive { get; set; }
         public string Balance { get; set; }
-        public decimal ConvertedBalance
-        {
-            get
-            {
-                return decimal.Parse(this.Balance, NumberStyles.AllowCurrencySymbol | NumberStyles.Number);
-            }
-        }
+        public decimal ConvertedBalance => decimal.Parse(this.Balance, NumberStyles.AllowCurrencySymbol | NumberStyles.Number);
         public int Age { get; set; }
         public Name Name { get; set; }
         public string EyeColor { get; set; }
@@ -24,12 +18,6 @@ namespace JsonInterrogator.Models
     {
         public string First { get; set; }
         public string Last { get; set; }
-        public string FullName
-        {
-            get
-            {
-                return $"{this.Last}, {this.First}";
-            }
-        }
+        public string FullName => $"{this.Last}, {this.First}";
     }
 }
