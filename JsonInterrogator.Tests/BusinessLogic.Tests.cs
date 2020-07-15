@@ -76,7 +76,7 @@ namespace JsonInterrogator.Tests
         }
 
         [Test]
-        public void Test()
+        public void ReturnCommonEyeColor()
         {
             // Arrange
             string common = "brown";
