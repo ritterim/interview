@@ -21,7 +21,7 @@ namespace JsonInterrogator.Models
 
         private void BuildViewModel()
         {
-            this.CountOverAge50 = this._people.Where(x => x.Age > 50).Count();
+            this.CountOverAge50 = this._people.GetCountOverAge50();
             this.LastActivePerson = this._people.Last(x => x.IsActive);
             this.FruitReport = this._people.GroupBy(x => x.FavoriteFruit)
                 .Select(x => new ReportViewModel(x.Key, x.Count()));
