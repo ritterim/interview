@@ -26,7 +26,7 @@ namespace JsonInterrogator.Tests
         }
 
         [Test]
-        public void Test()
+        public void ReturnsLastActivePerson()
         {
             // Arrange
             var lastActivePerson = new Person { IsActive = true };
