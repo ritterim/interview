@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 
 namespace JsonInterrogator.Models
 {
@@ -10,24 +9,14 @@ namespace JsonInterrogator.Models
         public AppViewModel(IEnumerable<Person> people)
         {
             this._people = people;
-            this.BuildViewModel();
         }
-        public int CountOverAge50 { get; private set; }
-        public Person LastActivePerson { get; private set; }
-        public IEnumerable<ReportViewModel> FruitReport { get; private set; }
-        public string CommonEyeColor { get; private set; }
-        public decimal TotalBalance { get; private set; }
-        public string FullNameById { get; private set; }
+        public int CountOverAge50 => _people.GetCountOverAge50();
+        public Person LastActivePerson => _people.GetLastActivePerson();
+        public IEnumerable<ReportViewModel> FruitReport => _people.GetFruitReport();
+        public string CommonEyeColor => _people.GetCommonEyeColor();
+        public decimal TotalBalance => _people.GetTotalBalance();
+        public string FullNameById => _people.GetFullNameById(SELECTED_ID);
 
-        private void BuildViewModel()
-        {
-            this.CountOverAge50 = this._people.GetCountOverAge50();
-            this.LastActivePerson = this._people.GetLastActivePerson();
-            this.FruitReport = this._people.GetFruitReport();
-            this.CommonEyeColor = this._people.GetCommonEyeColor();
-            this.TotalBalance = this._people.GetTotalBalance();
-            this.FullNameById = this._people.Single(x => x.Id == SELECTED_ID).Name.FullName;
-        }
     }
 
     public class ReportViewModel
