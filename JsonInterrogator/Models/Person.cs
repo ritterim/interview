@@ -25,5 +25,12 @@ namespace JsonInterrogator.Models
     {
         public string First { get; set; }
         public string Last { get; set; }
+        public string FullName
+        {
+            get
+            {
+                return $"{this.Last}, {this.First}";
+            }
+        }
     }
 }

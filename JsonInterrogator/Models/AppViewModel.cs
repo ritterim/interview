@@ -5,6 +5,7 @@ namespace JsonInterrogator.Models
 {
     public class AppViewModel
     {
+        const string SELECTED_ID = "5aabbca3e58dc67745d720b1";
         private IEnumerable<Person> _people;
         public AppViewModel(IEnumerable<Person> people)
         {
@@ -16,6 +17,7 @@ namespace JsonInterrogator.Models
         public IEnumerable<ReportViewModel> FruitReport { get; private set; }
         public string CommonEyeColor { get; private set; }
         public decimal TotalBalance { get; private set; }
+        public string FullNameById { get; private set; }
 
         private void BuildViewModel()
         {
@@ -26,6 +28,7 @@ namespace JsonInterrogator.Models
             this.CommonEyeColor = this._people.GroupBy(x => x.EyeColor).Select(x => new { EyeColor = x.Key, Count = x.Count() })
                 .OrderByDescending(x => x.Count).First().EyeColor;
             this.TotalBalance = this._people.Sum(x => x.ConvertedBalance);
+            this.FullNameById = this._people.Single(x => x.Id == SELECTED_ID).Name.FullName;
         }
     }
 
