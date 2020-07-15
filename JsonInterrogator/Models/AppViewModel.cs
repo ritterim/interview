@@ -14,7 +14,7 @@ namespace JsonInterrogator.Models
         public int CountOverAge50 { get; private set; }
         public Person LastActivePerson { get; private set; }
         public IEnumerable<ReportViewModel> FruitReport { get; private set; }
-
+        public string CommonEyeColor { get; private set; }
         public decimal TotalBalance { get; private set; }
 
         private void BuildViewModel()
@@ -23,6 +23,8 @@ namespace JsonInterrogator.Models
             this.LastActivePerson = this._people.Last(x => x.IsActive);
             this.FruitReport = this._people.GroupBy(x => x.FavoriteFruit)
                 .Select(x => new ReportViewModel(x.Key, x.Count()));
+            this.CommonEyeColor = this._people.GroupBy(x => x.EyeColor).Select(x => new { EyeColor = x.Key, Count = x.Count() })
+                .OrderByDescending(x => x.Count).First().EyeColor;
             this.TotalBalance = this._people.Sum(x => x.ConvertedBalance);
         }
     }
