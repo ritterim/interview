@@ -100,5 +100,22 @@ namespace JsonInterrogator.Tests
             // Assert
             Assert.AreEqual(common, result);
         }
+
+        [Test]
+        public void Test()
+        {
+            // Arrange
+            var people = new List<Person> {
+                new Person { Balance = "$1" },
+                new Person { Balance = "$10" },
+                new Person { Balance = "$13" },
+            };
+
+            // Act
+            var result = people.GetTotalBalance();
+
+            // Assert
+            Assert.AreEqual(24m, result);
+        }
     }
 }
