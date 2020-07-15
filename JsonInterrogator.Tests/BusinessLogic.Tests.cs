@@ -49,7 +49,7 @@ namespace JsonInterrogator.Tests
         }
 
         [Test]
-        public void Test()
+        public void ReturnsAFruitReportWithCounts()
         {
             // Arrange
             const string KIWI = "kiwi";
