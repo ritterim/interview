@@ -11,12 +11,11 @@ namespace JsonInterrogator.Tests
         public void ReturnsCountOfPeopleOver50()
         {
             // Arrange
-            var people = new List<Person>
-            {
-                new Person { Age = 20 },
-                new Person { Age = 50 },
-                new Person { Age = 51 },
-                new Person { Age = 52 },
+            var people = new List<Person> {
+                new Person { Age = RandomTestValues.RandomValue.Int(50) },
+                new Person { Age = RandomTestValues.RandomValue.Int(50) },
+                new Person { Age = RandomTestValues.RandomValue.Int(200, 50) },
+                new Person { Age = RandomTestValues.RandomValue.Int(200, 50) },
             };
 
             // Act
@@ -33,10 +32,10 @@ namespace JsonInterrogator.Tests
             var lastActivePerson = new Person { IsActive = true };
 
             var people = new List<Person> {
-                new Person { IsActive = false },
-                new Person { IsActive = false },
-                new Person { IsActive = true },
-                new Person { IsActive = false },
+                new Person { IsActive = RandomTestValues.RandomValue.Bool() },
+                new Person { IsActive = RandomTestValues.RandomValue.Bool() },
+                new Person { IsActive = RandomTestValues.RandomValue.Bool() },
+                new Person { IsActive = RandomTestValues.RandomValue.Bool() },
                 lastActivePerson,
                 new Person { IsActive = false },
             };
@@ -79,17 +78,17 @@ namespace JsonInterrogator.Tests
         public void ReturnCommonEyeColor()
         {
             // Arrange
-            string common = "brown";
+            string common = RandomTestValues.RandomValue.String();
 
             var people = new List<Person> {
                 new Person { EyeColor = common },
                 new Person { EyeColor = common },
                 new Person { EyeColor = common },
-                new Person { EyeColor = "blue" },
+                new Person { EyeColor = RandomTestValues.RandomValue.String() },
                 new Person { EyeColor = common },
-                new Person { EyeColor = "green" },
+                new Person { EyeColor = RandomTestValues.RandomValue.String() },
                 new Person { EyeColor = common },
-                new Person { EyeColor = "black" },
+                new Person { EyeColor = RandomTestValues.RandomValue.String() },
                 new Person { EyeColor = common },
                 new Person { EyeColor = common },
             };
@@ -122,15 +121,15 @@ namespace JsonInterrogator.Tests
         public void Test()
         {
             // Arrange
-            string selected = "1";
+            string selected = RandomTestValues.RandomValue.String();
             var expectedPerson = new Person { Id = selected, Name = new Name { First = "First", Last = "Last" } };
 
             var people = new List<Person> {
-                new Person { Id = "2" },
-                new Person { Id = "3" },
-                new Person { Id = "4" },
+                new Person { Id = RandomTestValues.RandomValue.String() },
+                new Person { Id = RandomTestValues.RandomValue.String() },
+                new Person { Id = RandomTestValues.RandomValue.String() },
                 expectedPerson,
-                new Person { Id = "6" },
+                new Person { Id = RandomTestValues.RandomValue.String() },
             };
 
             // Act
