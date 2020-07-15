@@ -102,7 +102,7 @@ namespace JsonInterrogator.Tests
         }
 
         [Test]
-        public void Test()
+        public void ReturnsTotalBalance()
         {
             // Arrange
             var people = new List<Person> {
