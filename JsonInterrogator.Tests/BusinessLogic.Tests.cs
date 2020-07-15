@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using JsonInterrogator.Models;
 using NUnit.Framework;
 
@@ -45,6 +46,33 @@ namespace JsonInterrogator.Tests
 
             // Assert
             Assert.AreSame(result, lastActivePerson);
+        }
+
+        [Test]
+        public void Test()
+        {
+            // Arrange
+            const string KIWI = "kiwi";
+            const string ORANGE = "orange";
+            const string GRAPES = "grapes";
+
+            var people = new List<Person> {
+                new Person { FavoriteFruit = KIWI},
+                new Person { FavoriteFruit = KIWI},
+                new Person { FavoriteFruit = KIWI},
+                new Person { FavoriteFruit = ORANGE},
+                new Person { FavoriteFruit = GRAPES},
+                new Person { FavoriteFruit = KIWI},
+                new Person { FavoriteFruit = ORANGE},
+            };
+
+            // Act
+            var result = people.GetFruitReport();
+
+            // Assert
+            Assert.AreEqual(4, result.Single(x => x.Description == KIWI).Count);
+            Assert.AreEqual(2, result.Single(x => x.Description == ORANGE).Count);
+            Assert.AreEqual(1, result.Single(x => x.Description == GRAPES).Count);
         }
     }
 }
