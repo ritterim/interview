@@ -74,5 +74,31 @@ namespace JsonInterrogator.Tests
             Assert.AreEqual(2, result.Single(x => x.Description == ORANGE).Count);
             Assert.AreEqual(1, result.Single(x => x.Description == GRAPES).Count);
         }
+
+        [Test]
+        public void Test()
+        {
+            // Arrange
+            string common = "brown";
+
+            var people = new List<Person> {
+                new Person { EyeColor = common },
+                new Person { EyeColor = common },
+                new Person { EyeColor = common },
+                new Person { EyeColor = "blue" },
+                new Person { EyeColor = common },
+                new Person { EyeColor = "green" },
+                new Person { EyeColor = common },
+                new Person { EyeColor = "black" },
+                new Person { EyeColor = common },
+                new Person { EyeColor = common },
+            };
+
+            // Act
+            var result = people.GetCommonEyeColor();
+
+            // Assert
+            Assert.AreEqual(common, result);
+        }
     }
 }
