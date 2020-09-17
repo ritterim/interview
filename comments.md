@@ -47,5 +47,3 @@ This can also all be done via Visual Studio using Solution Explorer/Package Mana
 * The only use of a List is when building a collection of key/value pairs for getting counts of favorite colors
 
 * Holding the data inside a private property available to the class methods prevents the need from having to pass the necessary data into every method. This could get tricky when it comes to managing state in a larger application, but for our purposes here this is an acceptable choice
-
-* Overall this class is very tightly coupled to a specific use-case. There's not much abstraction here 
