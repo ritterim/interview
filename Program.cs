@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Linq;
 using interview.models;
 using interview.services;
 
@@ -37,12 +38,14 @@ namespace interview
 
                     Console.WriteLine("#2. What is the count of individuals over the age of 50?");
                     
-                    var overFifty = dataService.GetIndividualsOverFifty();
+                    var overFifty = dataService.GetIndividualsOverUnderAge(50, true);
                     Console.WriteLine(overFifty);
 
                     Console.WriteLine("#3. Who is last individual that registered who is still active?");
                     
-                    var lastRegisteredActive = dataService.LastRegisteredStillActive();
+                    var lastRegisteredActive = dataService.GetIndividuals(true)
+                        .FirstOrDefault();
+
                     Console.WriteLine($"{lastRegisteredActive.Name.First} {lastRegisteredActive.Name.Last}");
 
                     Console.WriteLine("#4. What are the counts of each favorite fruit?");
@@ -67,7 +70,7 @@ namespace interview
                     Console.WriteLine("#7. What is the full name of the individual with the id of 5aabbca3e58dc67745d720b1 in the format of lastname, firstname?");
 
                     var individual = dataService.GetIndividualById("5aabbca3e58dc67745d720b1");
-                    Console.WriteLine($"{individual.Last}, {individual.First}");
+                    Console.WriteLine($"{individual.Name.Last}, {individual.Name.First}");
                 }
 
                 return;

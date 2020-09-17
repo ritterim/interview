@@ -8,25 +8,24 @@ namespace interview.services
 {
     public class DataService
     {
-        private List<Data> _data;
+        private IEnumerable<Data> _data;
 
         public DataService(IEnumerable<Data> data)
         {
-            _data = data.ToList();
+            _data = data;
         }
 
-        public int GetIndividualsOverFifty()
+        public int GetIndividualsOverUnderAge(int age, bool over)
         {
-            return _data.Where(d => d.Age > 50)
+            return _data.Where(d => over ? d.Age > age : d.Age < age)
                 .Count();
         }
 
-        public Data LastRegisteredStillActive()
+        public IEnumerable<Data> GetIndividuals(bool active)
         {
-            return _data.Where(d => d.IsActive == true)
+            return _data.Where(d => active ? d.IsActive == true : d.IsActive == false)
                 .Select(d => d)
-                .OrderByDescending(d => Convert.ToDateTime(d.Registered))
-                .FirstOrDefault();
+                .OrderByDescending(d => Convert.ToDateTime(d.Registered));
         }
 
         public IEnumerable<KeyValuePair<string, int>> GetCountsOfEachFavoriteFruit()
@@ -79,16 +78,13 @@ namespace interview.services
             return test;
         }
 
-        public Name GetIndividualById(string id)
+        public Data GetIndividualById(string id)
         {
             if (String.IsNullOrEmpty(id))
                 throw new ArgumentException(nameof(id));
 
             return _data.Where(d => d.Id == id)
-                .Select(d => new Name() {
-                    First = d.Name.First,
-                    Last = d.Name.Last
-                }).FirstOrDefault();
+                .FirstOrDefault();
         }
 
         private decimal ConvertStringCurrencyToDecimal(string amount)
