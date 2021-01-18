@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RitterIM.Interview", "RitterIM.Interview\RitterIM.Interview.csproj", "{96BC2DC6-E4EC-48B0-A8AC-C13812770064}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96BC2DC6-E4EC-48B0-A8AC-C13812770064}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96BC2DC6-E4EC-48B0-A8AC-C13812770064}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96BC2DC6-E4EC-48B0-A8AC-C13812770064}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96BC2DC6-E4EC-48B0-A8AC-C13812770064}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4ED35525-43E4-48CB-84F9-D7451B5ED45E}
+	EndGlobalSection
+EndGlobal
