@@ -14,7 +14,7 @@ namespace RitterIM.Interview
         static void Main(string[] args)
         {
             List<Person> people;
-            using (StreamReader r = new StreamReader(@"C:\git\repos\interview\data.json"))
+            using (StreamReader r = new StreamReader(@"..\..\..\..\data.json"))
             {
                 var json = r.ReadToEnd();
                 people = JsonConvert.DeserializeObject<List<Person>>(json);
