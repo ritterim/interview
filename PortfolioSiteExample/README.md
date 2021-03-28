@@ -6,8 +6,8 @@ TODO
 
 Run the following commands on your local machine in the terminal:
 ```bash
-git clone https://github.com/portfolio-site-demo/example-project.git
-cd example-project/PortfolioSiteExample.ConsoleApp
+git clone https://github.com/portfolio-site-demo/interview.git
+cd PortfolioSiteExample/PortfolioSiteExample.ConsoleApp
 dotnet run
 ```
 
@@ -29,8 +29,8 @@ dotnet run
 	```
 4. Run the Console App:
 	```bash
-	git clone https://github.com/portfolio-site-demo/example-project.git
-	cd example-project/PortfolioSiteExample.ConsoleApp
+	git clone https://github.com/portfolio-site-demo/interview.git
+	cd PortfolioSiteExample/PortfolioSiteExample.ConsoleApp
 	dotnet run
 	```
 
@@ -65,8 +65,8 @@ Saunders, Lourdes
 2. Select `START SCENARIO`.
 3. Run the following commands in the terminal:
 	```bash
-	git clone https://github.com/portfolio-site-demo/example-project.git
-	cd example-project/PortfolioSiteExample.DockerComposeApp
+	git clone https://github.com/portfolio-site-demo/interview.git
+	cd PortfolioSiteExample/PortfolioSiteExample.DockerComposeApp
 	docker-compose up
 	```
 4. Wait several minutes for Docker Compose to generate multiple application containers:
