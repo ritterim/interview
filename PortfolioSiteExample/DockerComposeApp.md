@@ -70,7 +70,7 @@ The following service logic is implemented in [PortfolioSiteExample.Api.Services
 1. `GetAnswers()` takes a `AnswerRequest` parameter with instructions to retrieve the answers to each question.
 2. `GetAnswers()` calls `GetAnswer()` for each question.
 3. If the records have not yet been inserted into the database:
-   1. Load the records into memory and serialize the JSON into C# objects.
+   1. Load the records into memory and deserialize the raw JSON into C# objects.
       - Note: The JSON was converted to C# using https://json2csharp.com.
    2. Persist the records to the database.
 4. `GetAnswer()` uses LINQ to find the answer to each question.
