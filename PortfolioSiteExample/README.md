@@ -36,7 +36,27 @@ dotnet run
 
 ## Console App - Example Output
 
-TODO
+```
+What is the count of individuals over the age of 50?
+55
+
+Who is last individual that registered who is still active?
+Wolf, Ramsey
+
+What are the counts of each favorite fruit?
+strawberry: 31
+apple: 38
+banana: 31
+
+What is the most common eye color?
+blue
+
+What is the total balance of all individuals combined?
+$261,601.15
+
+What is the full name of the individual with the id of 5aabbca3e58dc67745d720b1 in the format of lastname, firstname?
+Saunders, Lourdes
+```
 
 ## Run the Docker Compose App
 
