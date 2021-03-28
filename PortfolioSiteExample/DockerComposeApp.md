@@ -25,7 +25,7 @@ The Docker Compose app implements the following:
    - phpMyAdmin
    - PortfolioSiteExample.Api
    - PortfolioSiteExample.Frontend
-5. Once the containers are running, select the `+` (plus) sign at the top of the terminal and then select `View HTTP port 80 on Host 1`.
+5. Once the containers are running, select the `+` (plus) sign at the top of the terminal, and then select `View HTTP port 80 on Host 1`.
    
    ![](Images/DockerComposeAppScreenshot1.png)
 
@@ -33,7 +33,7 @@ The Docker Compose app implements the following:
 
    ![](Images/DockerComposeAppScreenshot2.png)
 
-6. To view the database in phpMyAdmin, select the `+` (plus) sign at the top of the terminal and then select `Select port to view on Host 1`.
+6. To view the database in phpMyAdmin, select the `+` (plus) sign at the top of the terminal, and then select `Select port to view on Host 1`.
 
    ![](Images/DockerComposeAppScreenshot3.png)
 
