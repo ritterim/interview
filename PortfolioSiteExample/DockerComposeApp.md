@@ -1,6 +1,6 @@
 # Overview
 
-The Docker Compose App implements the following:
+The Docker Compose app implements the following:
 - Three-Tier Architecture
   - Presentation Tier: ASP.NET Core MVC using .NET Core 3.1 LTS
   - Business Logic Tier: ASP.NET Core Web API using .NET Core 3.1 LTS
@@ -29,7 +29,7 @@ The Docker Compose App implements the following:
    
    ![](Images/DockerComposeAppScreenshot1.png)
 
-   The Docker Compose App displays the output for each question and answer.
+   The Docker Compose app displays the output for each question and answer.
 
    ![](Images/DockerComposeAppScreenshot2.png)
 

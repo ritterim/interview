@@ -13,7 +13,7 @@ cd interview/PortfolioSiteExample/PortfolioSiteExample.ConsoleApp
 dotnet run
 ```
 
-**Optional:** Run the Console App using Katacoda.
+**Optional:** Run the console app using Katacoda.
 1. Navigate to: https://www.katacoda.com/courses/container-runtimes/what-is-a-container
 2. Select `START SCENARIO`.
 3. Install .NET Core 3.1 by running the following commands in the terminal:
@@ -30,7 +30,7 @@ dotnet run
 	sudo apt-get install -y dotnet-sdk-3.1
 	# Original Source: https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/sdk-current
 	```
-4. Run the Console App:
+4. Run the console app:
 	```bash
 	git clone https://github.com/portfolio-site-demo/interview.git
 	cd interview/PortfolioSiteExample/PortfolioSiteExample.ConsoleApp
