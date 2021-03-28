@@ -5,6 +5,14 @@ WORKDIR /app
 EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
+
+WORKDIR /src
+COPY ["PortfolioSiteExample.UnitTests/PortfolioSiteExample.UnitTests.csproj", "PortfolioSiteExample.UnitTests/"]
+RUN dotnet restore "PortfolioSiteExample.UnitTests/PortfolioSiteExample.UnitTests.csproj"
+COPY . .
+WORKDIR "/src/PortfolioSiteExample.UnitTests"
+RUN dotnet test "PortfolioSiteExample.UnitTests.csproj"
+
 WORKDIR /src
 COPY ["PortfolioSiteExample.Api/PortfolioSiteExample.Api.csproj", "PortfolioSiteExample.Api/"]
 RUN dotnet restore "PortfolioSiteExample.Api/PortfolioSiteExample.Api.csproj"

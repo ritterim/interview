@@ -10,5 +10,7 @@ namespace PortfolioSiteExample.Data.Models
         }
 
         public DbSet<Record> Records { get; set; }
+
+        public DbSet<Answer> Answers { get; set; }
     }
 }

@@ -6,17 +6,16 @@ using PortfolioSiteExample.Shared;
 using PortfolioSiteExample.Shared.Enums;
 using PortfolioSiteExample.Shared.Requests;
 using PortfolioSiteExample.Shared.Responses;
-using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace PortfolioSiteExample.Api.Services
 {
     public class DataProcessingService : IDataProcessingService
     {
+        static readonly object lockObj = new object();
+
         private readonly Context _context;
         private readonly Settings _settings;
 
@@ -33,6 +32,8 @@ namespace PortfolioSiteExample.Api.Services
             {
                 answerResponse.Answer.Add(question, GetAnswer(question));
             }
+
+            PersistAnswersIfEmpty(answerResponse);
 
             return answerResponse;
         }
@@ -96,49 +97,71 @@ namespace PortfolioSiteExample.Api.Services
         {
             if (_context.Records.Count() == 0)
             {
-                var records = LoadRecords(_settings.DataFileName);
-                foreach (var record in records)
+                // Only permit one thread at a time
+                lock (lockObj)
                 {
-                    _context.Records.Add(new Record
+                    // If the database table is still empty, then load and insert the records
+                    if (_context.Records.Count() == 0)
                     {
-                        Id = record.id,
-                        FavoriteFruit = record.favoriteFruit,
-                        Greeting = record.greeting,
-                        Longitude = record.longitude,
-                        Latitude = record.latitude,
-                        RegisteredDate = record.RegisteredAsDateTime,
-                        Address = record.address,
-                        Phone = record.phone,
-                        Email = record.email,
-                        Company = record.company,
-                        LastName = record.name.last,
-                        FirstName = record.name.first,
-                        EyeColor = record.eyeColor,
-                        Age = record.age,
-                        Balance = record.BalanceAsDecimal,
-                        IsActive = record.isActive
-                    });
-                }
+                        var records = LoadRecords(_settings.DataFileName);
+                        foreach (var record in records)
+                        {
+                            _context.Records.Add(new Record
+                            {
+                                Id = record.id,
+                                FavoriteFruit = record.favoriteFruit,
+                                Greeting = record.greeting,
+                                Longitude = record.longitude,
+                                Latitude = record.latitude,
+                                RegisteredDate = record.RegisteredAsDateTime,
+                                Address = record.address,
+                                Phone = record.phone,
+                                Email = record.email,
+                                Company = record.company,
+                                LastName = record.name.last,
+                                FirstName = record.name.first,
+                                EyeColor = record.eyeColor,
+                                Age = record.age,
+                                Balance = record.BalanceAsDecimal,
+                                IsActive = record.isActive
+                            });
+                        }
 
-                _context.SaveChanges();
+                        _context.SaveChanges();
+                    }
+                }
+            }
+        }
+
+        public void PersistAnswersIfEmpty(AnswerResponse answerResponse)
+        {
+            if (_context.Answers.Count() == 0)
+            {
+                // Only permit one thread at a time
+                lock (lockObj)
+                {
+                    // If the database table is still empty, then load and insert the records
+                    if (_context.Answers.Count() == 0)
+                    {
+                        foreach (var answer in answerResponse.Answer)
+                        {
+                            _context.Answers.Add(new Answer
+                            {
+                                QuestionEnum = answer.Key.ToString(),
+                                AnswerText = answer.Value
+                            });
+                        }
+
+                        _context.SaveChanges();
+                    }
+                }
             }
         }
 
         private static List<Shared.Objects.Record> LoadRecords(string dataFileName)
         {
-            var records = new List<Shared.Objects.Record>();
-
-            try
-            {
-                string rawJson = System.IO.File.ReadAllText(dataFileName);
-                records = JsonConvert.DeserializeObject<List<Shared.Objects.Record>>(rawJson);
-            }
-            catch (FileNotFoundException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            return records;
+            string rawJson = System.IO.File.ReadAllText(dataFileName);
+            return JsonConvert.DeserializeObject<List<Shared.Objects.Record>>(rawJson);
         }
     }
 }

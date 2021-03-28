@@ -1,6 +1,8 @@
 # Introduction
 
-TODO
+This project contains a simple console app solution for the [RIMdev technical interview](https://github.com/ritterim/interview).
+
+Simply follow the documentation below to run the .NET Core 3.1 LTS console app on your local machine or online using [Katacoda](https://www.katacoda.com/).
 
 ## Run the Console App
 
@@ -11,7 +13,7 @@ cd interview/PortfolioSiteExample/PortfolioSiteExample.ConsoleApp
 dotnet run
 ```
 
-**Optional:** Run the Console App using Katacoda
+**Optional:** Run the Console App using Katacoda.
 1. Navigate to: https://www.katacoda.com/courses/container-runtimes/what-is-a-container
 2. Select `START SCENARIO`.
 3. Install .NET Core 3.1 by running the following commands in the terminal:
@@ -26,6 +28,7 @@ dotnet run
 	sudo apt-get install -y apt-transport-https
 	sudo apt-get update
 	sudo apt-get install -y dotnet-sdk-3.1
+	# Original Source: https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/sdk-current
 	```
 4. Run the Console App:
 	```bash
@@ -34,7 +37,7 @@ dotnet run
 	dotnet run
 	```
 
-## Console App - Example Output
+## Example Output
 
 ```
 What is the count of individuals over the age of 50?
@@ -58,42 +61,21 @@ What is the full name of the individual with the id of 5aabbca3e58dc67745d720b1 
 Saunders, Lourdes
 ```
 
-## Run the Docker Compose App
+## Technical Details
 
-**Steps**
-1. Navigate to: https://www.katacoda.com/courses/container-runtimes/what-is-a-container
-2. Select `START SCENARIO`.
-3. Run the following commands in the terminal:
-	```bash
-	git clone https://github.com/portfolio-site-demo/interview.git
-	cd interview/PortfolioSiteExample/PortfolioSiteExample.DockerComposeApp
-	docker-compose up
-	```
-4. Wait several minutes for Docker Compose to generate multiple application containers:
-   - MySQL Database
-   - phpMyAdmin
-   - PortfolioSiteExample.Api
-   - PortfolioSiteExample.Frontend
-5. Once the containers are running, select the `+` (plus) sign at the top of the terminal and then select `View HTTP port 80 on Host 1`.
-   
-   ![](DockerComposeAppScreenshot1.png)
+The following logic is implemented in [PortfolioSiteExample.ConsoleApp/Program.cs](https://github.com/portfolio-site-demo/interview/blob/master/PortfolioSiteExample/PortfolioSiteExample.ConsoleApp/Program.cs):
+1. Initialize the app settings.
+2. Load the records into memory and serialize the JSON into C# objects.
+   - Note: The JSON was converted from to C# using https://json2csharp.com.
+3. Use LINQ to create expressions to find the answer to each question.
+4. Print out each answer to the console.
 
-   The Docker Compose App displays the output for each question and answer.
+## Opportunities for Improvement
 
-   ![](DockerComposeAppScreenshot6.png)
+- Allow the user to enter query input values to make the responses more dynamic.  One option is to implement something like [GraphQL](https://graphql.org/) to provide access to specific data queries.
+- Reduce code duplication by using lambda expressions that may be passed to a generic method that retrieves the answer.
+- If processing millions of records, instead of loading all the data in memory, use a JSON import stream directed to a segmented bulk database insert process.  Then, query the database using LINQ for greater efficiency.
 
-6. To view the database in phpMyAdmin, select the `+` (plus) sign at the top of the terminal and then select `Select port to view on Host 1`.
+## Bonus
 
-   ![](DockerComposeAppScreenshot2.png)
-
-7. Enter port 8888 to display phpMyAdmin.
-
-   ![](DockerComposeAppScreenshot3.png)
-
-8. Log in using: root/secret.
-
-   ![](DockerComposeAppScreenshot4.png)
-
-9. Select the **Example** database and then the **Records** table to see the database records.
-
-   ![](DockerComposeAppScreenshot5.png)
+This app was also separately implemented using [Docker Compose](DockerComposeApp.md) to persist the result set to a database.

@@ -35,6 +35,8 @@ namespace PortfolioSiteExample.UnitTests
                 Age = 51
             });
 
+            context.SaveChanges();
+
             var dataProcessingService = new DataProcessingService(context, settings);
 
             var result = dataProcessingService.GetAnswers(new Shared.Requests.AnswerRequest

@@ -16,7 +16,7 @@ namespace PortfolioSiteExample.Frontend.Services
             _settings = settings.Value;
         }
 
-        public T SendGetRequest<T>(string endpoint, AnswerRequest answerRequest)
+        public T SendPostRequest<T>(string endpoint, AnswerRequest answerRequest)
         {
             T result = default(T);
 

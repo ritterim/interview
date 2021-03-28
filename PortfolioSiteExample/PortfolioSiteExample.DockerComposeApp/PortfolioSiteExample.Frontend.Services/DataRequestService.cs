@@ -15,7 +15,7 @@ namespace PortfolioSiteExample.Frontend.Services
 
         public AnswerResponse GetAnswers(AnswerRequest answerRequest)
         {
-            return _networkRequestService.SendGetRequest<AnswerResponse>("/ApiData/GetAnswers", answerRequest);
+            return _networkRequestService.SendPostRequest<AnswerResponse>("/ApiData/GetAnswers", answerRequest);
         }
     }
 }

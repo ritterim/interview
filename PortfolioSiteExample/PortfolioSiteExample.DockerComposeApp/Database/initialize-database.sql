@@ -27,3 +27,11 @@ CREATE TABLE `Records` (
 	`Balance` DECIMAL(10,2) NULL,
 	`IsActive` BIT NOT NULL
 );
+
+DROP TABLE IF EXISTS `Answers`;
+
+CREATE TABLE `Answers` (
+	`Id` INT AUTO_INCREMENT PRIMARY KEY,
+	`QuestionEnum` VARCHAR(50) NULL,
+	`AnswerText` VARCHAR(50) NULL
+);

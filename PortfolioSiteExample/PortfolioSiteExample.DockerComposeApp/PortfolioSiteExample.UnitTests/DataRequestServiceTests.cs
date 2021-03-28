@@ -15,7 +15,7 @@ namespace PortfolioSiteExample.UnitTests
         public void Validate_GetExample_Returns_Valid_Result()
         {
             var mockNetworkRequestService = new Mock<INetworkRequestService>();
-            mockNetworkRequestService.Setup(x => x.SendGetRequest<AnswerResponse>(It.IsAny<string>(), It.IsAny<AnswerRequest>()))
+            mockNetworkRequestService.Setup(x => x.SendPostRequest<AnswerResponse>(It.IsAny<string>(), It.IsAny<AnswerRequest>()))
                 .Returns(new AnswerResponse
                 {
                     Answer = new Dictionary<Question, string>() { { Question.OverAge50, "123"} }

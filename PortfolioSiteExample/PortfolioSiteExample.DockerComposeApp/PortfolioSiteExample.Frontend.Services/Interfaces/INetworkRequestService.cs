@@ -4,6 +4,6 @@ namespace PortfolioSiteExample.Frontend.Services.Interfaces
 {
     public interface INetworkRequestService
     {
-        T SendGetRequest<T>(string endpoint, AnswerRequest answerRequest);
+        T SendPostRequest<T>(string endpoint, AnswerRequest answerRequest);
     }
 }
