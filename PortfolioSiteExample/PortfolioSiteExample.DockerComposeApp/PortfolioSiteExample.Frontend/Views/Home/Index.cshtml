@@ -28,7 +28,7 @@
             <span>What are the counts of each favorite fruit?</span><br />
             @if (Model.Answer.ContainsKey(Question.DistinctFavoriteFruitCounts))
             {
-                <span>@Model.Answer[Question.DistinctFavoriteFruitCounts]</span><br /><br />
+                <span>@{ WriteLiteral(Model.Answer[Question.DistinctFavoriteFruitCounts].Replace(",", "<br />")); }</span><br /><br />
             }
         </li>
         <li>

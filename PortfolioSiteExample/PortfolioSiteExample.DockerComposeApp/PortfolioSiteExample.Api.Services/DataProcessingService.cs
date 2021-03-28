@@ -8,6 +8,7 @@ using PortfolioSiteExample.Shared.Requests;
 using PortfolioSiteExample.Shared.Responses;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -55,14 +56,14 @@ namespace PortfolioSiteExample.Api.Services
                     break;
 
                 case Question.DistinctFavoriteFruitCounts:
-                    var builder = new StringBuilder();
+                    var fruitList = new List<string>();
                     var distinctFavoriteFruits = _context.Records.Select(x => x.FavoriteFruit).Distinct().ToList();
                     foreach (var favoriteFruit in distinctFavoriteFruits)
                     {
-                        builder.Append($"{favoriteFruit}: {_context.Records.Count(x => x.FavoriteFruit == favoriteFruit)}");
+                        fruitList.Add($"{favoriteFruit}: {_context.Records.Count(x => x.FavoriteFruit == favoriteFruit)}");
                     }
 
-                    result = builder.ToString();
+                    result = string.Join(",", fruitList);
                     break;
 
                 case Question.MostCommonEyeColor:
@@ -79,7 +80,7 @@ namespace PortfolioSiteExample.Api.Services
 
                 case Question.TotalBalance:
                     var totalBalance = _context.Records.Sum(x => x.Balance);
-                    result = $"{totalBalance.ToString("c")}";
+                    result = string.Format(new CultureInfo("en-US"), "{0:c}", totalBalance);
                     break;
 
                 case Question.UniqueIndividual:
