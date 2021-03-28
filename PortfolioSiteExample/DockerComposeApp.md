@@ -9,6 +9,23 @@ The Docker Compose app implements the following:
 - [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
 - Unit testing using [xUnit](https://xunit.net/) and [Moq](https://github.com/moq/moq4#moq)
 
+## Why Use Docker Compose?
+
+Here's an example of the architecture I frequently use for applications that must support high traffic volumes within a data center.
+
+![](Images/ritterim-architecture-diagram.png)
+
+To mimic this three-tier architecture, multiple containers are needed:
+- **Front End:** PortfolioSiteExample.Frontend
+- **API:** PortfolioSiteExample.Api
+- **Database:** MySQL Database (with phpMyAdmin)
+
+Docker Compose reduces the complexity of defining and running multiple containers with dependencies down to:
+- A [docker-compose.yml](https://github.com/portfolio-site-demo/interview/blob/master/PortfolioSiteExample/PortfolioSiteExample.DockerComposeApp/docker-compose.yml) file
+- The command `docker-compose up`
+
+In practice, this same composed architecture may be split out across multiple servers in each tier within a data center.
+
 ## Run the Docker Compose App
 
 **Steps**
@@ -75,6 +92,23 @@ The following service logic is implemented in [PortfolioSiteExample.Api.Services
    2. Persist the records to the database.
 4. `GetAnswer()` uses LINQ to find the answer to each question.
 5. If the answers have not yet been inserted into the database, add them to the table.
+
+## Why Use Multiple Projects?
+
+This application uses the following projects:
+- **PortfolioSiteExample.Api** - Contains the API endpoints
+- **PortfolioSiteExample.Api.Services** - Contains the API business logic
+- **PortfolioSiteExample.Data** - Contains the database entity objects
+- **PortfolioSiteExample.Frontend** - Contains the front-end UI
+- **PortfolioSiteExample.Frontend.Services** - Contains services for the front end to access the API endpoints
+- **PortfolioSiteExample.Shared** - Contains shared objects needed across multiple projects (e.g. request/response objects)
+- **PortfolioSiteExample.UnitTests** - Contains unit tests for services
+
+This structure separates the business logic into separate services, and isolates the UI, API, and database from each other.
+
+By using dependency injection for the separate services, unit testing is now possible to test each component in isolation.
+
+This project strategy allows for greater flexbility when refactoring code, and provides developers confidence that code may be tested effectively.
 
 ## Opportunities for Improvement
 
