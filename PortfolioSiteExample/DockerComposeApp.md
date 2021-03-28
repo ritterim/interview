@@ -7,7 +7,7 @@ The Docker Compose App implements the following:
   - Data Storage Tier: MySQL database (with phpMyAdmin)
 - [Docker Compose](https://docs.docker.com/compose/) for defining and running multi-container Docker applications
 - [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
-- Unit Tests using [xUnit](https://xunit.net/) and [Moq](https://github.com/moq/moq4#moq)
+- Unit testing using [xUnit](https://xunit.net/) and [Moq](https://github.com/moq/moq4#moq)
 
 ## Run the Docker Compose App
 
@@ -31,23 +31,27 @@ The Docker Compose App implements the following:
 
    The Docker Compose App displays the output for each question and answer.
 
-   ![](Images/DockerComposeAppScreenshot6.png)
+   ![](Images/DockerComposeAppScreenshot2.png)
 
 6. To view the database in phpMyAdmin, select the `+` (plus) sign at the top of the terminal and then select `Select port to view on Host 1`.
 
-   ![](Images/DockerComposeAppScreenshot2.png)
-
-7. Enter port 8888 to display phpMyAdmin.
-
    ![](Images/DockerComposeAppScreenshot3.png)
 
-8. Log in using: root/secret.
+7. Enter port `8888` to display phpMyAdmin.
 
    ![](Images/DockerComposeAppScreenshot4.png)
 
-9. Select the **Example** database and then the **Records** table to see the database records.
+8. Log in using: root/secret.
 
    ![](Images/DockerComposeAppScreenshot5.png)
+
+9. Select the **Example** database, and then the **Records** table to see the database records.
+
+   ![](Images/DockerComposeAppScreenshot6.png)
+
+10. Select the **Answers** table to see the persisted output result set.
+
+    ![](Images/DockerComposeAppScreenshot7.png)
 
 ## Technical Details
 
