@@ -81,7 +81,7 @@ Here is the request flow from the front end:
 6. `GetAnswers()` returns an `AnswerResponse` object with the response data.
 7. The `AnswerResponse` object is passed back through the chain of requests to Step 1.
 8. `Index()` passes `answerResponse` to the view in [HomeController.cs](https://github.com/portfolio-site-demo/interview/blob/master/PortfolioSiteExample/PortfolioSiteExample.DockerComposeApp/PortfolioSiteExample.Frontend/Controllers/HomeController.cs).
-9. [Index.cshtml](https://github.com/portfolio-site-demo/interview/blob/master/PortfolioSiteExample/PortfolioSiteExample.DockerComposeApp/PortfolioSiteExample.Frontend/Views/Home/Index.cshtml) renders to the browser.
+9. [Index.cshtml](https://github.com/portfolio-site-demo/interview/blob/master/PortfolioSiteExample/PortfolioSiteExample.DockerComposeApp/PortfolioSiteExample.Frontend/Views/Home/Index.cshtml) renders and the output is returned to the browser.
 
 The following service logic is implemented in [PortfolioSiteExample.Api.Services/DataProcessingService.cs](https://github.com/portfolio-site-demo/interview/blob/master/PortfolioSiteExample/PortfolioSiteExample.DockerComposeApp/PortfolioSiteExample.Api.Services/DataProcessingService.cs):
 1. `GetAnswers()` takes a `AnswerRequest` parameter with instructions to retrieve the answers to each question.
