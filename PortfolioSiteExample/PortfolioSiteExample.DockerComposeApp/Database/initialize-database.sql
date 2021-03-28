@@ -16,7 +16,7 @@ CREATE TABLE `Records` (
 	`Longitude` VARCHAR(50) NULL,
 	`Latitude` VARCHAR(50) NULL,
 	`RegisteredDate` DATETIME(3) NULL,
-	`Address` VARCHAR(50) NULL,
+	`Address` VARCHAR(200) NULL,
 	`Phone` VARCHAR(50) NULL,
 	`Email` VARCHAR(50) NULL,
 	`Company` VARCHAR(50) NULL,
