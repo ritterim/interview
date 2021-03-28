@@ -24,6 +24,6 @@ CREATE TABLE `Records` (
 	`FirstName` VARCHAR(50) NULL,
 	`EyeColor` VARCHAR(50) NULL,
 	`Age` VARCHAR(50) NULL,
-	`Balance` DECIMAL(5,2) NULL,
+	`Balance` DECIMAL(10,2) NULL,
 	`IsActive` BIT NOT NULL
 );
