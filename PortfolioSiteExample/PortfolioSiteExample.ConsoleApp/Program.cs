@@ -23,7 +23,7 @@ namespace PortfolioSiteExample.ConsoleApp
 
 
             var lastRegisteredActive = records.OrderByDescending(x => x.RegisteredAsDateTime).First(x => x.isActive);
-            Console.WriteLine("Who is last individual that registered who is still active?");
+            Console.WriteLine("Who is the last individual that registered who is still active?");
             Console.WriteLine($"{lastRegisteredActive.name.last}, {lastRegisteredActive.name.first}");
             Console.WriteLine();
 

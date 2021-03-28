@@ -43,7 +43,7 @@ dotnet run
 What is the count of individuals over the age of 50?
 55
 
-Who is last individual that registered who is still active?
+Who is the last individual that registered who is still active?
 Wolf, Ramsey
 
 What are the counts of each favorite fruit?
@@ -78,4 +78,4 @@ The following logic is implemented in [PortfolioSiteExample.ConsoleApp/Program.c
 
 ## Bonus
 
-This app was also separately implemented using [Docker Compose](DockerComposeApp.md) to persist the result set to a database.
+See a separate implementation using [Docker Compose](DockerComposeApp.md) to persist the result set to a database.

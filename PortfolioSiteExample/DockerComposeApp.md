@@ -61,7 +61,7 @@ Here is the request flow from the front end:
 3. `SendPostRequest()` sends the API POST request with the JSON request object in [NetworkRequestService.cs](https://github.com/portfolio-site-demo/interview/blob/master/PortfolioSiteExample/PortfolioSiteExample.DockerComposeApp/PortfolioSiteExample.Frontend.Services/NetworkRequestService.cs).
 4. `GetAnswers()` handles the API request in [ApiDataController.cs](https://github.com/portfolio-site-demo/interview/blob/master/PortfolioSiteExample/PortfolioSiteExample.DockerComposeApp/PortfolioSiteExample.Api/Controllers/ApiDataController.cs).
 5. `GetAnswers()` implements the service logic in [DataProcessingService.cs](https://github.com/portfolio-site-demo/interview/blob/master/PortfolioSiteExample/PortfolioSiteExample.DockerComposeApp/PortfolioSiteExample.Api.Services/DataProcessingService.cs).
-6. `GetAnswers()` returns an `AnswerResponse` object with the reponse data.
+6. `GetAnswers()` returns an `AnswerResponse` object with the response data.
 7. The `AnswerResponse` object is passed back through the chain of requests to Step 1.
 8. `Index()` passes `answerResponse` to the view in [HomeController.cs](https://github.com/portfolio-site-demo/interview/blob/master/PortfolioSiteExample/PortfolioSiteExample.DockerComposeApp/PortfolioSiteExample.Frontend/Controllers/HomeController.cs).
 9. [Index.cshtml](https://github.com/portfolio-site-demo/interview/blob/master/PortfolioSiteExample/PortfolioSiteExample.DockerComposeApp/PortfolioSiteExample.Frontend/Views/Home/Index.cshtml) renders to the browser.
@@ -71,7 +71,7 @@ The following service logic is implemented in [PortfolioSiteExample.Api.Services
 2. `GetAnswers()` calls `GetAnswer()` for each question.
 3. If the records have not yet been inserted into the database:
    1. Load the records into memory and serialize the JSON into C# objects.
-      - Note: The JSON was converted from to C# using https://json2csharp.com.
+      - Note: The JSON was converted to C# using https://json2csharp.com.
    2. Persist the records to the database.
 4. `GetAnswer()` uses LINQ to find the answer to each question.
 5. If the answers have not yet been inserted into the database, add them to the table.
