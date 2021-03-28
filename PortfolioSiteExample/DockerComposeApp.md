@@ -18,7 +18,7 @@ Here's an example of the architecture I frequently use for applications that mus
 To mimic this three-tier architecture, multiple containers are needed:
 - **Front End:** PortfolioSiteExample.Frontend
 - **API:** PortfolioSiteExample.Api
-- **Database:** MySQL Database (with phpMyAdmin)
+- **Database:** MySQL database (with phpMyAdmin)
 
 Docker Compose reduces the complexity of defining and running multiple containers with dependencies down to:
 - A [docker-compose.yml](https://github.com/portfolio-site-demo/interview/blob/master/PortfolioSiteExample/PortfolioSiteExample.DockerComposeApp/docker-compose.yml) file
@@ -38,7 +38,7 @@ In practice, this same composed architecture may be split out across multiple se
 	docker-compose up
 	```
 4. Wait several minutes for Docker Compose to generate multiple application containers:
-   - MySQL Database
+   - MySQL database
    - phpMyAdmin
    - PortfolioSiteExample.Api
    - PortfolioSiteExample.Frontend
