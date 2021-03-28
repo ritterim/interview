@@ -76,12 +76,17 @@ Saunders, Lourdes
    - PortfolioSiteExample.Frontend
 5. Once the containers are running, select the `+` (plus) sign at the top of the terminal and then select `View HTTP port 80 on Host 1`.
    ![](DockerComposeAppScreenshot1.png)
+   The Docker Compose App displays the output for each question and answer.
    ![](DockerComposeAppScreenshot6.png)
+
 6. To view the database in phpMyAdmin, select the `+` (plus) sign at the top of the terminal and then select `Select port to view on Host 1`.
    ![](DockerComposeAppScreenshot2.png)
+
 7. Enter port 8888 to display phpMyAdmin.
    ![](DockerComposeAppScreenshot3.png)
+
 8. Log in using: root/secret.
    ![](DockerComposeAppScreenshot4.png)
+
 9. Select the **Example** database and then the **Records** table to see the database records.
    ![](DockerComposeAppScreenshot5.png)
