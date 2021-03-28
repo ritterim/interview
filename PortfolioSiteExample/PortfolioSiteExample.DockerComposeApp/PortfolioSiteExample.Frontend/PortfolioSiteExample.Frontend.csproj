@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PortfolioSiteExample.Frontend.Services\PortfolioSiteExample.Frontend.Services.csproj" />
+    <ProjectReference Include="..\PortfolioSiteExample.Shared\PortfolioSiteExample.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
