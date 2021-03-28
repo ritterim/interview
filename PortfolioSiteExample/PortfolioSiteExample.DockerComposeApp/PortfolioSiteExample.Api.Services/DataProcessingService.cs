@@ -140,7 +140,7 @@ namespace PortfolioSiteExample.Api.Services
                 // Only permit one thread at a time
                 lock (lockObj)
                 {
-                    // If the database table is still empty, then load and insert the records
+                    // If the database table is still empty, then insert the records
                     if (_context.Answers.Count() == 0)
                     {
                         foreach (var answer in answerResponse.Answer)
