@@ -66,7 +66,7 @@ Saunders, Lourdes
 The following logic is implemented in [PortfolioSiteExample.ConsoleApp/Program.cs](https://github.com/portfolio-site-demo/interview/blob/master/PortfolioSiteExample/PortfolioSiteExample.ConsoleApp/Program.cs):
 1. Initialize the app settings.
 2. Load the records into memory and deserialize the raw JSON into C# objects.
-   - Note: The JSON was converted from to C# using https://json2csharp.com.
+   - Note: The JSON was converted to C# using https://json2csharp.com.
 3. Use LINQ to create expressions to find the answer to each question.
 4. Print out each answer to the console.
 

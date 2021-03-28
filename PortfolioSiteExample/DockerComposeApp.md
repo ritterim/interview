@@ -42,7 +42,7 @@ In practice, this same composed architecture may be split out across multiple se
    - phpMyAdmin
    - PortfolioSiteExample.Api
    - PortfolioSiteExample.Frontend
-5. Once the containers are running, select the `+` (plus) sign at the top of the terminal, and then select `View HTTP port 80 on Host 1`.
+5. Once the containers are running, select the `+` (plus) sign at the top of the terminal, and then choose `View HTTP port 80 on Host 1`.
    
    ![](Images/DockerComposeAppScreenshot1.png)
 
@@ -50,7 +50,7 @@ In practice, this same composed architecture may be split out across multiple se
 
    ![](Images/DockerComposeAppScreenshot2.png)
 
-6. To view the database in phpMyAdmin, select the `+` (plus) sign at the top of the terminal, and then select `Select port to view on Host 1`.
+6. To view the database in phpMyAdmin, select the `+` (plus) sign at the top of the terminal, and then choose `Select port to view on Host 1`.
 
    ![](Images/DockerComposeAppScreenshot3.png)
 
@@ -108,7 +108,7 @@ This structure separates the business logic into separate services, and isolates
 
 By using dependency injection for the separate services, unit testing is now possible to test each component in isolation.
 
-This project strategy allows for greater flexbility when refactoring code, and provides developers confidence that code may be tested effectively.
+This project strategy allows for greater flexibility when refactoring code, and provides developers confidence that code may be tested effectively.
 
 ## Opportunities for Improvement
 
