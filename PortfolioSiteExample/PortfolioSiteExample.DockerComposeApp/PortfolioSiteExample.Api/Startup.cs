@@ -37,7 +37,7 @@ namespace PortfolioSiteExample.Api
             services.AddOptions();
             services.Configure<Settings>(configuration.GetSection("Settings"));
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -14,42 +14,42 @@
             <span>What is the count of individuals over the age of 50?</span><br />
             @if (Model.Answer.ContainsKey(Question.OverAge50))
             {
-                <strong>@Model.Answer[Question.OverAge50]</strong><br /><br />
+                <span>@Model.Answer[Question.OverAge50]</span><br /><br />
             }
         </li>
         <li>
             <span>Who is last individual that registered who is still active?</span><br />
             @if (Model.Answer.ContainsKey(Question.LastRegisteredActive))
             {
-                <strong>@Model.Answer[Question.LastRegisteredActive]</strong><br /><br />
+                <span>@Model.Answer[Question.LastRegisteredActive]</span><br /><br />
             }
         </li>
         <li>
             <span>What are the counts of each favorite fruit?</span><br />
             @if (Model.Answer.ContainsKey(Question.DistinctFavoriteFruitCounts))
             {
-                <strong>@Model.Answer[Question.DistinctFavoriteFruitCounts]</strong><br /><br />
+                <span>@Model.Answer[Question.DistinctFavoriteFruitCounts]</span><br /><br />
             }
         </li>
         <li>
             <span>What is the most common eye color?</span><br />
             @if (Model.Answer.ContainsKey(Question.MostCommonEyeColor))
             {
-                <strong>@Model.Answer[Question.MostCommonEyeColor]</strong><br /><br />
+                <span>@Model.Answer[Question.MostCommonEyeColor]</span><br /><br />
             }
         </li>
         <li>
             <span>What is the total balance of all individuals combined?</span><br />
             @if (Model.Answer.ContainsKey(Question.TotalBalance))
             {
-                <strong>@Model.Answer[Question.TotalBalance]</strong><br /><br />
+                <span>@Model.Answer[Question.TotalBalance]</span><br /><br />
             }
         </li>
         <li>
             <span>What is the full name of the individual with the id of 5aabbca3e58dc67745d720b1 in the format of lastname, firstname?</span><br />
             @if (Model.Answer.ContainsKey(Question.UniqueIndividual))
             {
-                <strong>@Model.Answer[Question.UniqueIndividual]</strong><br /><br />
+                <span>@Model.Answer[Question.UniqueIndividual]</span><br /><br />
             }
         </li>
     </ul>
