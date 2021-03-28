@@ -1,7 +1,10 @@
 using Moq;
-using PortfolioSiteExample.Data.Models;
 using PortfolioSiteExample.Frontend.Services;
 using PortfolioSiteExample.Frontend.Services.Interfaces;
+using PortfolioSiteExample.Shared.Enums;
+using PortfolioSiteExample.Shared.Requests;
+using PortfolioSiteExample.Shared.Responses;
+using System.Collections.Generic;
 using Xunit;
 
 namespace PortfolioSiteExample.UnitTests
@@ -12,19 +15,23 @@ namespace PortfolioSiteExample.UnitTests
         public void Validate_GetExample_Returns_Valid_Result()
         {
             var mockNetworkRequestService = new Mock<INetworkRequestService>();
-            mockNetworkRequestService.Setup(x => x.SendGetRequest<Example>(It.IsAny<string>()))
-                .Returns(new Example 
-                { 
-                    ExampleId = 1, 
-                    Test = "Test123" 
+            mockNetworkRequestService.Setup(x => x.SendGetRequest<AnswerResponse>(It.IsAny<string>(), It.IsAny<AnswerRequest>()))
+                .Returns(new AnswerResponse
+                {
+                    Answer = new Dictionary<Question, string>() { { Question.OverAge50, "123"} }
                 });
 
             var dataRequestService = new DataRequestService(mockNetworkRequestService.Object);
 
-            var result = dataRequestService.GetExample();
+            var result = dataRequestService.GetAnswers(new AnswerRequest
+            {
+                Question = new List<Question>()
+                {
+                    Question.OverAge50
+                }
+            });
 
-            Assert.Equal(1, result.ExampleId);
-            Assert.Equal("Test123", result.Test);
+            Assert.Equal("123", result.Answer[Question.OverAge50]);
         }
     }
 }

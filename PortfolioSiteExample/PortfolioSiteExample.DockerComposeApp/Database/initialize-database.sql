@@ -7,9 +7,23 @@ Use Example;
 SET CHARACTER_SET_CLIENT = utf8;
 SET CHARACTER_SET_CONNECTION = utf8;
 
-DROP TABLE IF EXISTS `Examples`;
+DROP TABLE IF EXISTS `Records`;
 
-CREATE TABLE `Examples` (
-   `ExampleId` INT AUTO_INCREMENT PRIMARY KEY,
-   `Test` VARCHAR(100) NULL
+CREATE TABLE `Records` (
+	`Id` VARCHAR(50) PRIMARY KEY,
+	`FavoriteFruit` VARCHAR(50) NULL,
+	`Greeting` VARCHAR(50) NULL,
+	`Longitude` VARCHAR(50) NULL,
+	`Latitude` VARCHAR(50) NULL,
+	`RegisteredDate` DATETIME(3) NULL,
+	`Address` VARCHAR(50) NULL,
+	`Phone` VARCHAR(50) NULL,
+	`Email` VARCHAR(50) NULL,
+	`Company` VARCHAR(50) NULL,
+	`LastName` VARCHAR(50) NULL,
+	`FirstName` VARCHAR(50) NULL,
+	`EyeColor` VARCHAR(50) NULL,
+	`Age` VARCHAR(50) NULL,
+	`Balance` DECIMAL(5,2) NULL,
+	`IsActive` BIT NOT NULL
 );

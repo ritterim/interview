@@ -9,6 +9,6 @@ namespace PortfolioSiteExample.Data.Models
         {
         }
 
-        public DbSet<Example> Examples { get; set; }
+        public DbSet<Record> Records { get; set; }
     }
 }

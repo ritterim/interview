@@ -3,8 +3,11 @@ using Microsoft.Extensions.Options;
 using PortfolioSiteExample.Api.Services;
 using PortfolioSiteExample.Data.Models;
 using PortfolioSiteExample.Shared;
+using PortfolioSiteExample.Shared.Enums;
 using System;
+using System.Collections.Generic;
 using Xunit;
+using Record = PortfolioSiteExample.Data.Models.Record;
 
 namespace PortfolioSiteExample.UnitTests
 {
@@ -17,7 +20,7 @@ namespace PortfolioSiteExample.UnitTests
                 new Settings
                 {
                     ApiBaseUrl = "http://test",
-                    DataFileName = "test.json",
+                    DataFileName = "data.json",
                 }
             );
 
@@ -26,12 +29,20 @@ namespace PortfolioSiteExample.UnitTests
                 .Options;
             var context = new Context(options);
 
+            context.Records.Add(new Record
+            {
+                Id = "1",
+                Age = 51
+            });
+
             var dataProcessingService = new DataProcessingService(context, settings);
 
-            var result = dataProcessingService.GetExample();
+            var result = dataProcessingService.GetAnswers(new Shared.Requests.AnswerRequest
+            {
+                Question = new List<Question>() { Question.OverAge50}
+            });
 
-            Assert.Equal(1, result.ExampleId);
-            Assert.Equal("Test123", result.Test);
+            Assert.Equal("1", result.Answer[Question.OverAge50]);
         }
     }
 }

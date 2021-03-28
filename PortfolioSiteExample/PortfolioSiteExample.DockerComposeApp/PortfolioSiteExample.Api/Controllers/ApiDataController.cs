@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PortfolioSiteExample.Api.Services.Interfaces;
-using PortfolioSiteExample.Data.Models;
+using PortfolioSiteExample.Shared.Requests;
+using PortfolioSiteExample.Shared.Responses;
 
 namespace PortfolioSiteExample.Api.Controllers
 {
@@ -19,10 +20,16 @@ namespace PortfolioSiteExample.Api.Controllers
             _dataProcessingService = dataProcessingService;
         }
 
-        [HttpGet("GetExample")]
-        public Example GetExample()
+        [HttpGet("HealthCheck")]
+        public string HealthCheck()
         {
-            return _dataProcessingService.GetExample();
+            return "PortfolioSiteExample.Api is Healthy";
+        }
+
+        [HttpPost("GetAnswers")]
+        public AnswerResponse GetAnswers(AnswerRequest answerRequest)
+        {
+            return _dataProcessingService.GetAnswers(answerRequest);
         }
     }
 }

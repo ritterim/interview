@@ -1,5 +1,6 @@
-﻿using PortfolioSiteExample.Data.Models;
-using PortfolioSiteExample.Frontend.Services.Interfaces;
+﻿using PortfolioSiteExample.Frontend.Services.Interfaces;
+using PortfolioSiteExample.Shared.Requests;
+using PortfolioSiteExample.Shared.Responses;
 
 namespace PortfolioSiteExample.Frontend.Services
 {
@@ -12,9 +13,9 @@ namespace PortfolioSiteExample.Frontend.Services
             _networkRequestService = networkRequestService;
         }
 
-        public Example GetExample()
+        public AnswerResponse GetAnswers(AnswerRequest answerRequest)
         {
-            return _networkRequestService.SendGetRequest<Example>("/ApiData/GetExample");
+            return _networkRequestService.SendGetRequest<AnswerResponse>("/ApiData/GetAnswers", answerRequest);
         }
     }
 }

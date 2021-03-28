@@ -5,6 +5,9 @@ using PortfolioSiteExample.Frontend.Models;
 using Microsoft.Extensions.Options;
 using PortfolioSiteExample.Shared;
 using PortfolioSiteExample.Frontend.Services.Interfaces;
+using PortfolioSiteExample.Shared.Enums;
+using PortfolioSiteExample.Shared.Requests;
+using PortfolioSiteExample.Shared.Responses;
 
 namespace PortfolioSiteExample.Frontend.Controllers
 {
@@ -25,8 +28,20 @@ namespace PortfolioSiteExample.Frontend.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Test = _dataRequestService.GetExample().Test;
-            return View();
+            var answerRequest = new AnswerRequest();
+            answerRequest.Question.Add(Question.OverAge50);
+            answerRequest.Question.Add(Question.LastRegisteredActive);
+            answerRequest.Question.Add(Question.DistinctFavoriteFruitCounts);
+            answerRequest.Question.Add(Question.MostCommonEyeColor);
+            answerRequest.Question.Add(Question.TotalBalance);
+            answerRequest.Question.Add(Question.UniqueIndividual);
+            var answerResponse = _dataRequestService.GetAnswers(answerRequest);
+            if (answerResponse == null)
+            {
+                answerResponse = new AnswerResponse();
+            }
+
+            return View(answerResponse);
         }
 
         public IActionResult Privacy()

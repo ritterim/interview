@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using PortfolioSiteExample.Frontend.Services.Interfaces;
 using PortfolioSiteExample.Shared;
+using PortfolioSiteExample.Shared.Requests;
 using RestSharp;
 
 namespace PortfolioSiteExample.Frontend.Services
@@ -15,13 +16,14 @@ namespace PortfolioSiteExample.Frontend.Services
             _settings = settings.Value;
         }
 
-        public T SendGetRequest<T>(string endpoint)
+        public T SendGetRequest<T>(string endpoint, AnswerRequest answerRequest)
         {
             T result = default(T);
 
             var client = new RestClient(_settings.ApiBaseUrl);
             var request = new RestRequest(endpoint, DataFormat.Json);
-            var response = client.Get(request);
+            request.AddJsonBody(answerRequest);
+            var response = client.Post(request);
 
             if (response.IsSuccessful)
             {

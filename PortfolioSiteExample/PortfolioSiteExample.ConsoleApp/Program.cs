@@ -13,8 +13,8 @@ namespace PortfolioSiteExample.ConsoleApp
         public static void Main(string[] args)
         {
             var settings = InitializeSettings();
-            var records = LoadRecords(settings.DataFileName);      
-            
+            var records = LoadRecords(settings.DataFileName);
+
 
             var overAge50 = records.Where(x => x.age > 50);
             Console.WriteLine("What is the count of individuals over the age of 50?");
@@ -39,7 +39,8 @@ namespace PortfolioSiteExample.ConsoleApp
 
 
             var mostCommonEyeColor = records.GroupBy(x => x.eyeColor)
-                                            .Select(group => new {
+                                            .Select(group => new
+                                            {
                                                 EyeColor = group.Key,
                                                 Count = group.Count()
                                             })

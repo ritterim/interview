@@ -1,9 +1,10 @@
-﻿using PortfolioSiteExample.Data.Models;
+﻿using PortfolioSiteExample.Shared.Requests;
+using PortfolioSiteExample.Shared.Responses;
 
 namespace PortfolioSiteExample.Api.Services.Interfaces
 {
     public interface IDataProcessingService
     {
-        Example GetExample();
+        AnswerResponse GetAnswers(AnswerRequest answerRequest);
     }
 }
